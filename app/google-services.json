@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "370288466977",
+    "firebase_url": "https://hothel-database-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "hothel-database",
+    "storage_bucket": "hothel-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370288466977:android:a59eec11273ca73c7c5760",
+        "android_client_info": {
+          "package_name": "com.example.datphongkhachsan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370288466977-atd040k4kpt6vvn17fb5tm7uu8jddosn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbFZt4YHpjI8NZSKCH_mwqxAiJsRP-CDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370288466977-atd040k4kpt6vvn17fb5tm7uu8jddosn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
