@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SignUPActivity">
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="340sp"
+        android:layout_height="wrap_content"
+        android:text="Đăng nhập tài khoản"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="45sp"
+        android:textColor="@color/Lavender"
+        android:textStyle="bold"/>
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        <EditText
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:id="@+id/edtLoginEmail"
+            android:padding="8dp"
+            android:drawableLeft="@drawable/ic_baseline_email_24"
+            android:background="@drawable/edittext_bkg"
+            android:hint="Nhập email"/>
+        <EditText
+
+            android:padding="8dp"
+            android:drawableLeft="@drawable/ic_baseline_key_24"
+            android:background="@drawable/edittext_bkg"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:id="@+id/edtLoginPassword"
+            android:hint="Nhập mật khẩu"
+            />
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            app:cornerRadius = "30dp"
+            android:text="Đăng Nhập"
+            android:textSize="25sp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/btnLogin"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bạn chưa có tài khoản?"
+                android:textSize="15sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Đăng Ký"
+                android:textSize="20sp"
+                android:textColor="@color/Lavender"
+                android:id="@+id/tvToSignUp"
+                android:textStyle="bold"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
