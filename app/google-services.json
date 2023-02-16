@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "370288466977",
-    "firebase_url": "https://hothel-database-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "hothel-database",
-    "storage_bucket": "hothel-database.appspot.com"
+    "project_number": "543443464051",
+    "firebase_url": "https://hotel-database-e38fc-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "hotel-database-e38fc",
+    "storage_bucket": "hotel-database-e38fc.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:370288466977:android:a59eec11273ca73c7c5760",
+        "mobilesdk_app_id": "1:543443464051:android:edc5ece263d7fb9acb5f06",
         "android_client_info": {
           "package_name": "com.example.datphongkhachsan"
         }
       },
       "oauth_client": [
         {
-          "client_id": "370288466977-atd040k4kpt6vvn17fb5tm7uu8jddosn.apps.googleusercontent.com",
+          "client_id": "543443464051-0dm8ig44avnmmto4liu95o2vc7adr4no.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.datphongkhachsan",
+            "certificate_hash": "9686db5acbcec3475c0326ca03515c853e960b82"
+          }
+        },
+        {
+          "client_id": "543443464051-snpqspsmf0jnbr3dl7hh9oq9gk59ah9i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDbFZt4YHpjI8NZSKCH_mwqxAiJsRP-CDQ"
+          "current_key": "AIzaSyAYQgUMLFlEBTeAR9k3Z-A8QE3f9P_FVUA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "370288466977-atd040k4kpt6vvn17fb5tm7uu8jddosn.apps.googleusercontent.com",
+              "client_id": "543443464051-snpqspsmf0jnbr3dl7hh9oq9gk59ah9i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
