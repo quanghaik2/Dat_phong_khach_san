@@ -27,11 +27,11 @@
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
-            android:id="@+id/edtSignUpEmail"
+            android:id="@+id/edtSignUpUsers"
             android:padding="8dp"
             android:drawableLeft="@drawable/ic_baseline_email_24"
             android:background="@drawable/edittext_bkg"
-            android:hint="Nhập email"
+            android:hint="Nhập tên"
             android:drawablePadding="8dp"
             android:inputType="textEmailAddress"/>
         <LinearLayout
