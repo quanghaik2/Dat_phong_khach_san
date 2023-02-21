@@ -11,16 +11,21 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +34,7 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
     TextView tvToSignUp;
     ImageView hidePassLogin;
-    EditText edtLoginEmail, edtLoginPassword;
+    EditText edtLoginUser, edtLoginPassword;
     Button btnLogin;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -39,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         tvToSignUp = findViewById(R.id.tvToSignUp);
         edtLoginPassword = findViewById(R.id.edtLoginPassword);
-        edtLoginEmail = findViewById(R.id.edtLoginEmail);
+        edtLoginUser = findViewById(R.id.edtLoginUser);
         hidePassLogin = findViewById(R.id.hidePassLogin);
         btnLogin = findViewById(R.id.btnLogin);
 
@@ -66,6 +71,34 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String username = edtLoginUser.getText().toString();
+                String password = edtLoginPassword.getText().toString();
+//                Adapter<Object> adapter = new Adapter<Object>;
+//                Map<String, Object> Users = new HashMap<String, Object>();
+                db.collection("users").
+                        whereEqualTo("userName",username)
+                        .whereEqualTo("passWord",password)
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                   if(task.getResult() != null) {
+                                       Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                                       Intent intent = new Intent(LoginActivity.this, Home_Page.class);
+                                       startActivity(intent);
+                                   }
+                                } else {
+                                    Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+            }
+        });
 
 
     }

@@ -105,8 +105,8 @@ public class SignUPActivity extends AppCompatActivity {
                 String confirm = edtConfirmPassword.getText().toString();
                 if(password.equals(confirm)){
                     Map<String, Object> user = new HashMap<>();
-                    user.put("UserName",userAccount);
-                    user.put("Password",password);
+                    user.put("userName",userAccount);
+                    user.put("passWord",password);
 
                     db.collection("users")
                             .add(user)
