@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="184dp"
+        android:layout_height="136dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/phong1" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phòng số 201"
+            android:textColor="#000"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="giá phòng: 160.000đ/giờ"
+            android:textSize="20dp"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tình trạng: còn phòng"
+            android:textSize="20dp"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loại phòng: đơn"
+            android:textSize="20dp"
+            android:textColor="#000"/>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <Button
+               android:layout_width="110dp"
+               android:layout_height="match_parent"
+               android:text="Xem chi tiết"
+               android:textSize="12dp" />
+
+           <Button
+               android:layout_width="100dp"
+               android:layout_height="wrap_content"
+               android:text="Đặt phòng"
+               android:textSize="12dp"/>
+
+       </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
