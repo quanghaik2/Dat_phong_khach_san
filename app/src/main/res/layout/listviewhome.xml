@@ -2,60 +2,94 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="184dp"
-        android:layout_height="136dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/phong1" />
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
+        android:background="@drawable/botron_item"
+        android:orientation="vertical"
+        android:padding="40dp"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="277dp"
+            android:layout_height="136dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/phong1" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phòng số 201"
-            android:textColor="#000"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="giá phòng: 160.000đ/giờ"
-            android:textSize="20dp"
-            android:textColor="#000"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tình trạng: còn phòng"
-            android:textSize="20dp"
-            android:textColor="#000"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Loại phòng: đơn"
-            android:textSize="20dp"
-            android:textColor="#000"/>
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
 
-           <Button
-               android:layout_width="110dp"
-               android:layout_height="match_parent"
-               android:text="Xem chi tiết"
-               android:textSize="12dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phòng số 201"
+                android:textColor="#000"
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
-           <Button
-               android:layout_width="100dp"
-               android:layout_height="wrap_content"
-               android:text="Đặt phòng"
-               android:textSize="12dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="giá phòng: 160.000đ/GIỜ"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:layout_marginTop="5dp"/>
 
-       </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOẠI PHÒNG: ĐƠN (1 GIƯỜNG)"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:layout_marginTop="5dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TÌNH TRẠNG PHÒNG: "
+                    android:textColor="#000"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TRỐNG"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:text="XEM CHI TIẾT"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Đặt phòng"
+                    android:textSize="12dp"
+                    android:layout_marginLeft="40dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
     </LinearLayout>
 
 
