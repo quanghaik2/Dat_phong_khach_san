@@ -103,7 +103,7 @@ public class SignUPActivity extends AppCompatActivity {
                 String userAccount = edtSignUpUsers.getText().toString();
                 String password = edtSignUpPassword.getText().toString();
                 String confirm = edtConfirmPassword.getText().toString();
-                if(password.equals(confirm) || userAccount != null || password != null){
+                if(password.equals(confirm) && (userAccount != null || password != null)){
                     Map<String, Object> user = new HashMap<>();
                     user.put("userName",userAccount);
                     user.put("passWord",password);
