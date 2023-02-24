@@ -103,7 +103,7 @@ public class SignUPActivity extends AppCompatActivity {
                 String userAccount = edtSignUpUsers.getText().toString();
                 String password = edtSignUpPassword.getText().toString();
                 String confirm = edtConfirmPassword.getText().toString();
-                if(password.equals(confirm)){
+                if(password.equals(confirm) || userAccount != null || password != null){
                     Map<String, Object> user = new HashMap<>();
                     user.put("userName",userAccount);
                     user.put("passWord",password);
@@ -115,6 +115,8 @@ public class SignUPActivity extends AppCompatActivity {
                                 public void onSuccess(DocumentReference documentReference) {
                                     Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                                     Toast.makeText(SignUPActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(SignUPActivity.this, LoginActivity.class);
+                                    startActivity(intent);
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
