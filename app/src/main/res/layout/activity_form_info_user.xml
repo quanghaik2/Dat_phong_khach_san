@@ -7,6 +7,17 @@
     tools:context=".Form_Info_User"
     android:orientation="vertical">
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/Lavender" >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_baseline_close_24" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -30,7 +41,7 @@
             android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Emial"
+            android:hint="Email"
             android:textSize="20dp"/>
 
     <TextView

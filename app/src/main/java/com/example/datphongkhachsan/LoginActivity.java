@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = edtLoginPassword.getText().toString();
 //                Adapter<Object> adapter = new Adapter<Object>;
 //                Map<String, Object> Users = new HashMap<String, Object>();
-                db.collection("users").
+                db.collection("Users").
                         whereEqualTo("userName",username)
                         .whereEqualTo("passWord",password)
                         .get()

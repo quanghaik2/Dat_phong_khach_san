@@ -108,7 +108,7 @@ public class SignUPActivity extends AppCompatActivity {
                     user.put("userName",userAccount);
                     user.put("passWord",password);
 
-                    db.collection("users")
+                    db.collection("Users")
                             .add(user)
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override

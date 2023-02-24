@@ -6,11 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <TextView
+            android:layout_marginTop="160dp"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:text="D.D.D"
+            android:textSize="110sp"
+            android:fontFamily="@font/shantell"
+            android:textColor="#3ABCF6"
+            android:gravity="center"
+            android:textStyle="italic"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="đi đu đưa"
+            android:fontFamily="@font/shantell"
+            android:textColor="#3ABCF6"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"
+            android:textStyle="italic"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_marginTop="100dp"
+        android:id="@+id/btnStart"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/buttom_bkg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:text="Bắt đầu"
+        android:textSize="20sp"/>
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Để bắt đầu sử dụng app hãy ấn nút bắt đầu! "
+            android:textSize="15sp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="#03A9F4"
+            android:textStyle="italic"
+            android:gravity="center"/>
+
+<!--<LinearLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content">-->
+
+<!--</LinearLayout>-->
 
 
 

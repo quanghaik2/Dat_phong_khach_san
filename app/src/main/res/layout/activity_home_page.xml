@@ -7,7 +7,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#ffbd59">
+        android:background="#ffbd59"
+        android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -16,14 +17,28 @@
             android:textStyle="bold"
             android:fontFamily="@font/shantell"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+            <ImageView
+                android:id="@+id/imgToLogin"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_account_circle_24" />
+        </LinearLayout>
+
     </LinearLayout>
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/ic_baseline_visibility_24"
-        android:id="@+id/imgHomePage"/>
+        android:src="@drawable/phong1"
+        android:id="@+id/imgHomePage"
+        android:scaleType="centerCrop"/>
 
     <HorizontalScrollView
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none">
@@ -34,6 +49,7 @@
             >
 
             <Button
+                android:id="@+id/btnVip"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
@@ -41,18 +57,36 @@
                 android:background="@drawable/botron_buttom"/>
 
             <Button
+                android:id="@+id/btnThuong"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="thường"
+                android:text="Thường"
                 android:background="@drawable/botron_buttom"/>
 
             <Button
+                android:id="@+id/btnTrong"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="Đang trống"
+                android:background="@drawable/botron_buttom"/>
+
+            <Button
+                android:id="@+id/btnDon"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Phòng đơn"
+                android:background="@drawable/botron_buttom"/>
+
+            <Button
+                android:id="@+id/btnDoi"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Phòng đôi"
                 android:background="@drawable/botron_buttom"/>
 
 
@@ -60,6 +94,7 @@
     </HorizontalScrollView>
 
     <GridView
+        android:layout_marginTop="20dp"
         android:numColumns="auto_fit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
