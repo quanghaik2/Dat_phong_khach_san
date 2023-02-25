@@ -45,41 +45,50 @@ public class Form_Info_User extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 //        final CollectionReference reference = db.collection("Users");
         btnComplete = findViewById(R.id.btnComplete);
+        Bundle bundle = getIntent().getExtras();
+        String idUser = bundle.getString("id");
+        String idUserInfo = bundle.getString("idUserInfo");
+        String bdName = bundle.getString("name");
+        String bdEmail = bundle.getString("email");
+        String bdPhone = bundle.getString("phone");
+        String bdAddress = bundle.getString("address");
+        edtFullName.setText(bdName);
+        edtAddress.setText(bdAddress);
+        edtPhone.setText(bdPhone);
+        edtEmail.setText(bdEmail);
+
+
         btnComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if (fullName == "" || address == "" || phone == "" || email == ""){
-                        Bundle bundle = getIntent().getExtras();
-                        if (bundle != null){
+//                    if (fullName == "" || address == "" || phone == "" || email == ""){
                             Map<String, Object> items = new HashMap<>();
                             items.put("fullname", edtFullName.getText().toString());
                             items.put("address", edtAddress.getText().toString());
                             items.put("phone", edtPhone.getText().toString());
                             items.put("email", edtEmail.getText().toString());
-                            String idUser = bundle.getString("idUser");
                             db.collection("Users").document(idUser).collection("usersInfo")
-                                    .add(items)
-                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    .document(idUserInfo)
+                                    .update(items)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
-                                        public void onSuccess(DocumentReference documentReference) {
-                                            Toast.makeText(Form_Info_User.this, "Thêm thông tin thành công", Toast.LENGTH_SHORT).show();
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(Form_Info_User.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
                                         }
                                     })
                                     .addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(Form_Info_User.this, "Thêm thông tin thất bại", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(Form_Info_User.this, "Sửa thất bại", Toast.LENGTH_SHORT).show();
                                         }
                                     });
-                    }
-                        else {
-                            Toast.makeText(Form_Info_User.this, "Bundel null", Toast.LENGTH_SHORT).show();
-                        }
 
-                }
-                    else {
-                        Toast.makeText(Form_Info_User.this, "Hãy điền đủ thông tin", Toast.LENGTH_SHORT).show();
-                    }
+
+
+//                }
+//                    else {
+//                        Toast.makeText(Form_Info_User.this, "Hãy điền đủ thông tin", Toast.LENGTH_SHORT).show();
+//                    }
 
 
             }
@@ -88,8 +97,9 @@ public class Form_Info_User extends AppCompatActivity {
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form_Info_User.this, Home_Page.class);
-                startActivity(intent);
+//                Intent intent = new Intent(Form_Info_User.this, UserActivity.class);
+//                startActivity(intent);
+//                setContentView(R.layout.activity_user);
             }
         });
     }

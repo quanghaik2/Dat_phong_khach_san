@@ -62,4 +62,15 @@
             android:text="Hai"
             android:id="@+id/tvEmail"/>
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sửa thông tin"
+        android:id="@+id/editInfo"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xóa toàn bộ thông tin"
+        android:id="@+id/DelInfo"/>
 </LinearLayout>

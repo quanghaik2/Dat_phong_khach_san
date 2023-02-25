@@ -12,13 +12,18 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Home_Page extends AppCompatActivity {
 
@@ -43,19 +48,38 @@ public class Home_Page extends AppCompatActivity {
         btnDon = findViewById(R.id.btnDon);
         btnTrong = findViewById(R.id.btnTrong);
         adapterRoom adapter = new adapterRoom(Home_Page.this, rooms);
-        // lấy id của User
         Bundle Bundle = getIntent().getExtras();
         String id = Bundle.getString("id");
 
         imgToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Home_Page.this, id, Toast.LENGTH_SHORT).show();
-                Intent mIntent = new Intent(Home_Page.this, Form_Info_User.class);
+                // lấy id của User
+//                Toast.makeText(Home_Page.this, id, Toast.LENGTH_SHORT).show();
+                Intent mIntent = new Intent(Home_Page.this, UserActivity.class);
                 Bundle mBundle = new Bundle();
-                mBundle.putString("idUser", id);
+                mBundle.putString("id1", id);
                 mIntent.putExtras(mBundle);
                 startActivity(mIntent);
+//                Map<String, Object> items = new HashMap<>();
+//                items.put("fullname", "");
+//                items.put("address", "");
+//                items.put("phone", "");
+//                items.put("email", "");
+//                db.collection("Users").document(id).collection("usersInfo")
+//                        .add(items)
+//                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                            @Override
+//                            public void onSuccess(DocumentReference documentReference) {
+//                                Toast.makeText(Home_Page.this, "Tạo thành công", Toast.LENGTH_SHORT).show();
+//                            }
+//                        })
+//                        .addOnFailureListener(new OnFailureListener() {
+//                            @Override
+//                            public void onFailure(@NonNull Exception e) {
+//                                Toast.makeText(Home_Page.this, "Tạo thất bại", Toast.LENGTH_SHORT).show();
+//                            }
+//                        });
             }
         });
 
