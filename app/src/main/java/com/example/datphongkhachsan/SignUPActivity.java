@@ -20,12 +20,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCanceledListener;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -139,4 +143,33 @@ public class SignUPActivity extends AppCompatActivity {
 
 
     }
+
+//    public Boolean checkKegistration(String username, String password){
+//        final int counts = 0;
+//        db.collection("Users")
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        QuerySnapshot snapshot = task.getResult();
+//                        int count = 0;
+//                        if(task.isSuccessful()){
+//                            for(QueryDocumentSnapshot doc : snapshot){
+//                                if(String.valueOf((doc.get("userName"))).equals(username)){
+//                                    count +=1;
+//                                }
+//                            }
+//                        }
+//                        counts = count;
+//                    }
+//                });
+//        if(counts == 0){
+//            return false;
+//        }else {
+//            return true;
+//        }
+//
+//
+//    }
+
 }

@@ -1,5 +1,6 @@
 package com.example.datphongkhachsan;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,15 @@ public class adapterRoom extends BaseAdapter {
         tvNameRoom.setText(data.get(position).getRoomName());
         tvKindRoom.setText(data.get(position).getKindRoom());
         tvStatus.setText(data.get(position).getStatus());
+        String color = "";
+        if(data.get(position).getStatus().equals("Đã thuê")){
+             color = "#FF0000";
+
+        }else {
+            color = "#33FF00";
+        }
+        tvStatus.setTextColor(Color.parseColor(color));
+
         tvPrice.setText(String.valueOf(data.get(position).getPrice()) + ".đ");
 
         return convertView;

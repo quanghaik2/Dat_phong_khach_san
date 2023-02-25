@@ -38,37 +38,50 @@ public class Form_Info_User extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtEmail);
         edtPhone = findViewById(R.id.edtPhone);
         imgBack = findViewById(R.id.imgBack);
-        String fullName = edtFullName.toString();
-        String address = edtAddress.toString();
-        String phone = edtPhone.toString();
-        String email = edtEmail.toString();
+        String fullName = edtFullName.getText().toString();
+        String address = edtAddress.getText().toString();
+        String phone = edtPhone.getText().toString();
+        String email = edtEmail.getText().toString();
         db = FirebaseFirestore.getInstance();
-        final CollectionReference reference = db.collection("usersInfo");
+//        final CollectionReference reference = db.collection("Users");
         btnComplete = findViewById(R.id.btnComplete);
         btnComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (fullName == "" || address == "" || phone == "" || email == ""){
-                    Map<String, userInfo> items = new HashMap<>();
-                    userInfo user = new userInfo(fullName,phone,address,email);
-                    items.put("user", user);
-                    reference.add(items)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    Toast.makeText(Form_Info_User.this, "Thêm thông tin thành công", Toast.LENGTH_SHORT).show();
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(Form_Info_User.this, "Thêm thông tin thất bại", Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                    if (fullName == "" || address == "" || phone == "" || email == ""){
+                        Bundle bundle = getIntent().getExtras();
+                        if (bundle != null){
+                            Map<String, Object> items = new HashMap<>();
+                            items.put("fullname", edtFullName.getText().toString());
+                            items.put("address", edtAddress.getText().toString());
+                            items.put("phone", edtPhone.getText().toString());
+                            items.put("email", edtEmail.getText().toString());
+                            String idUser = bundle.getString("idUser");
+                            db.collection("Users").document(idUser).collection("usersInfo")
+                                    .add(items)
+                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        @Override
+                                        public void onSuccess(DocumentReference documentReference) {
+                                            Toast.makeText(Form_Info_User.this, "Thêm thông tin thành công", Toast.LENGTH_SHORT).show();
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(Form_Info_User.this, "Thêm thông tin thất bại", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                    }
+                        else {
+                            Toast.makeText(Form_Info_User.this, "Bundel null", Toast.LENGTH_SHORT).show();
+                        }
+
                 }
-                else {
-                    Toast.makeText(Form_Info_User.this, "Hãy nhập đủ thông tin", Toast.LENGTH_SHORT).show();
-                }
+                    else {
+                        Toast.makeText(Form_Info_User.this, "Hãy điền đủ thông tin", Toast.LENGTH_SHORT).show();
+                    }
+
+
             }
         });
 

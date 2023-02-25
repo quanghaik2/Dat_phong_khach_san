@@ -88,9 +88,20 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                 if (task.isSuccessful()) {
                                    if(task.getResult() != null) {
+                                       String id = "";
+                                       for (QueryDocumentSnapshot document : task.getResult()) {
+//                                           Log.d(TAG, document.getId() + " => " + document.getData());
+                                                id = document.getId();
+                                       }
+
                                        Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+
                                        Intent intent = new Intent(LoginActivity.this, Home_Page.class);
+                                       Bundle mBundle = new Bundle();
+                                       mBundle.putString("id", id);
+                                       intent.putExtras(mBundle);
                                        startActivity(intent);
+
                                    }
                                 } else {
                                     Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
