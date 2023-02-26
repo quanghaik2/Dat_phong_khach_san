@@ -94,9 +94,9 @@ public class Home_Page extends AppCompatActivity {
                                 String name = String.valueOf(doc.get("NameRoom"));
                                 String kind = String.valueOf(doc.get("KindRoom"));
                                 String status = String.valueOf(doc.get("Status"));
-                                String id = doc.getId();
+                                String idRoom = doc.getId();
                                 int price = Integer.parseInt(doc.get("Price").toString());
-                                rooms.add(new room(name, kind, status, price,id));
+                                rooms.add(new room(name, kind, status, price,idRoom));
 //                                Toast.makeText(Home_Page.this, name + kind + status + price, Toast.LENGTH_SHORT).show();
                             }
                             glRoom.setAdapter(adapter);

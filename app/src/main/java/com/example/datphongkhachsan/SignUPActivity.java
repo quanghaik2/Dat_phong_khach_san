@@ -107,10 +107,12 @@ public class SignUPActivity extends AppCompatActivity {
                 String userAccount = edtSignUpUsers.getText().toString();
                 String password = edtSignUpPassword.getText().toString();
                 String confirm = edtConfirmPassword.getText().toString();
+                boolean admin = false;
                 if(password.equals(confirm) && (userAccount != null || password != null)){
                     Map<String, Object> user = new HashMap<>();
                     user.put("userName",userAccount);
                     user.put("passWord",password);
+                    user.put("admin",admin);
 
                     db.collection("Users")
                             .add(user)
@@ -144,32 +146,14 @@ public class SignUPActivity extends AppCompatActivity {
 
     }
 
-//    public Boolean checkKegistration(String username, String password){
-//        final int counts = 0;
-//        db.collection("Users")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        QuerySnapshot snapshot = task.getResult();
-//                        int count = 0;
-//                        if(task.isSuccessful()){
-//                            for(QueryDocumentSnapshot doc : snapshot){
-//                                if(String.valueOf((doc.get("userName"))).equals(username)){
-//                                    count +=1;
-//                                }
-//                            }
-//                        }
-//                        counts = count;
-//                    }
-//                });
-//        if(counts == 0){
-//            return false;
-//        }else {
-//            return true;
-//        }
-//
-//
-//    }
+    public Boolean checkKegistration(String username, String password){
+        final int counts = 0;
+        db.collection("Users")
+                .whereEqualTo("userName",username);
+
+
+        return false;
+
+    }
 
 }

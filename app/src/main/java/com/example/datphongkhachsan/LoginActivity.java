@@ -89,18 +89,29 @@ public class LoginActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                    if(task.getResult() != null) {
                                        String id = "";
+                                       Boolean checkadmin = false;
                                        for (QueryDocumentSnapshot document : task.getResult()) {
 //                                           Log.d(TAG, document.getId() + " => " + document.getData());
                                                 id = document.getId();
+                                                checkadmin = (boolean) document.get("admin");
                                        }
 
                                        Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
-                                       Intent intent = new Intent(LoginActivity.this, Home_Page.class);
-                                       Bundle mBundle = new Bundle();
-                                       mBundle.putString("id", id);
-                                       intent.putExtras(mBundle);
-                                       startActivity(intent);
+                                       if(checkadmin){
+                                           Intent intent = new Intent(LoginActivity.this, EditRoomActivity.class);
+                                           Bundle mBundle = new Bundle();
+                                           mBundle.putString("id", id);
+                                           intent.putExtras(mBundle);
+                                           startActivity(intent);
+                                       }
+                                       else {
+                                           Intent intent = new Intent(LoginActivity.this, Home_Page.class);
+                                           Bundle mBundle = new Bundle();
+                                           mBundle.putString("id", id);
+                                           intent.putExtras(mBundle);
+                                           startActivity(intent);
+                                       }
 
                                    }
                                 } else {
