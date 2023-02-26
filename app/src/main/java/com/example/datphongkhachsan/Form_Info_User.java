@@ -94,16 +94,16 @@ public class Form_Info_User extends AppCompatActivity {
             }
         });
 
-        imgBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Form_Info_User.this, Home_Page.class);
-//                Bundle bundle1 = new Bundle();
-//                bundle1.putString("id1",idUser);
-//                intent.putExtras(bundle1);
-                startActivity(intent);
-
-            }
-        });
+//        imgBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Form_Info_User.this, Home_Page.class);
+////                Bundle bundle1 = new Bundle();
+////                bundle1.putString("id1",idUser);
+////                intent.putExtras(bundle1);
+//                startActivity(intent);
+//
+//            }
+//        });
     }
 }
