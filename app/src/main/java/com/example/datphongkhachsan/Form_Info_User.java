@@ -97,9 +97,11 @@ public class Form_Info_User extends AppCompatActivity {
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(Form_Info_User.this, UserActivity.class);
-//                startActivity(intent);
-//                setContentView(R.layout.activity_user);
+                Intent intent = new Intent(Form_Info_User.this, UserActivity.class);
+                startActivity(intent);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("id1",idUser);
+                setContentView(R.layout.activity_user);
             }
         });
     }

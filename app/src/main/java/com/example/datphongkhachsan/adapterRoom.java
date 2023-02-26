@@ -1,14 +1,21 @@
 package com.example.datphongkhachsan;
 
+//import static androidx.core.content.ContextCompat.startActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.content.Context;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -45,6 +52,8 @@ public class adapterRoom extends BaseAdapter {
         TextView tvKindRoom = convertView.findViewById(R.id.tvKindRoom);
         TextView tvPrice = convertView.findViewById(R.id.tvPrice);
         TextView tvStatus = convertView.findViewById(R.id.tvStatus);
+        Button btnRoomDetail = convertView.findViewById(R.id.btnRoomDetail);
+        Button btnBookRoom = convertView.findViewById(R.id.btnBookRoom);
 
         tvNameRoom.setText(data.get(position).getRoomName());
         tvKindRoom.setText(data.get(position).getKindRoom());
@@ -59,6 +68,22 @@ public class adapterRoom extends BaseAdapter {
         tvStatus.setTextColor(Color.parseColor(color));
 
         tvPrice.setText(String.valueOf(data.get(position).getPrice()) + ".đ");
+
+        btnRoomDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context , Chi_tiet_phong.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("nameRoom", data.get(position).getRoomName());
+                bundle.putString("kindRoom", data.get(position).getKindRoom());
+                bundle.putInt("price",data.get(position).getPrice());
+                bundle.putString("status",data.get(position).getStatus());
+                bundle.putString("id",data.get(position).getId());
+                Toast.makeText(context,data.get(position).getId()  + " " + data.get(position).getRoomName() , Toast.LENGTH_SHORT).show();
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
 
         return convertView;
     }

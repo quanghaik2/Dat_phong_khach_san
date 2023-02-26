@@ -94,8 +94,9 @@ public class Home_Page extends AppCompatActivity {
                                 String name = String.valueOf(doc.get("NameRoom"));
                                 String kind = String.valueOf(doc.get("KindRoom"));
                                 String status = String.valueOf(doc.get("Status"));
+                                String id = doc.getId();
                                 int price = Integer.parseInt(doc.get("Price").toString());
-                                rooms.add(new room(name, kind, status, price));
+                                rooms.add(new room(name, kind, status, price,id));
 //                                Toast.makeText(Home_Page.this, name + kind + status + price, Toast.LENGTH_SHORT).show();
                             }
                             glRoom.setAdapter(adapter);
@@ -149,7 +150,8 @@ public class Home_Page extends AppCompatActivity {
                                             String name = String.valueOf(doc.get("NameRoom"));
                                             int price = Integer.parseInt(doc.get("Price").toString());
                                             String kind = String.valueOf(doc.get("KindRoom"));
-                                            room2.add(new room(name, kind, status, price));
+                                            String id = doc.getId();
+                                            room2.add(new room(name, kind, status, price,id));
                                         }
                                     }
                                     glRoom.setAdapter(rooms2);
@@ -175,7 +177,8 @@ public class Home_Page extends AppCompatActivity {
                                     String name = String.valueOf(doc.get("NameRoom"));
                                     String status = String.valueOf(doc.get("Status"));
                                     int price = Integer.parseInt(doc.get("Price").toString());
-                                    room2.add(new room(name, kind, status, price));
+                                    String id = doc.getId();
+                                    room2.add(new room(name, kind, status, price,id));
                                 }
                             }
 

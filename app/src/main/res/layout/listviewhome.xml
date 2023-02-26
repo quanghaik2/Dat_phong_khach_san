@@ -106,6 +106,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="15dp">
                 <Button
+                    android:id="@+id/btnRoomDetail"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:text="Xem phòng"
@@ -114,6 +115,7 @@
                     android:layout_marginBottom="8dp"/>
 
                 <Button
+                    android:id="@+id/btnBookRoom"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:text="Đặt phòng"

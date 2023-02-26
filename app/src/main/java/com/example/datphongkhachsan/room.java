@@ -1,16 +1,18 @@
 package com.example.datphongkhachsan;
 
 public class room {
+    String id;
     String roomName;
     String kindRoom;
     String status;
     int price;
 
-    public room(String roomName, String kindRoom, String status, int price) {
+    public room(String roomName, String kindRoom, String status, int price,String id) {
         this.roomName = roomName;
         this.kindRoom = kindRoom;
         this.status = status;
         this.price = price;
+        this.id = id;
     }
 
     public String getRoomName() {
@@ -43,5 +45,13 @@ public class room {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
