@@ -23,10 +23,12 @@ import java.util.List;
 public class adapterRoom extends BaseAdapter {
     Context context;
     List<room> data;
+    String idUser;
 
-    public adapterRoom(Context context, List<room> data) {
+    public adapterRoom(Context context, List<room> data, String idUser) {
         this.context = context;
         this.data = data;
+        this.idUser = idUser;
     }
 
     @Override
@@ -82,6 +84,19 @@ public class adapterRoom extends BaseAdapter {
                 Toast.makeText(context,data.get(position).getId()  + " " + data.get(position).getRoomName() , Toast.LENGTH_SHORT).show();
                 intent.putExtras(bundle);
                 context.startActivity(intent);
+            }
+        });
+
+        btnBookRoom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, BookRoomActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("idRoom", data.get(position).getId());
+                bundle.putString("idUser",idUser);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+
             }
         });
 

@@ -5,28 +5,39 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class EditRoomActivity extends AppCompatActivity {
+
+    ArrayList<room> rooms;
     RadioButton rbVip,rbThuong,rbDon,rbDoi,rbTrong,rbDaThue;
     RadioGroup rgStatus,rgRoomKind;
     EditText edtRoomName, edtPrice;
-    Button btnAdd,btnUpdate,btnDelete;
+    Button btnAdd;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    ListView lvRoom;
     String roomKind = "";
     String roomStatus ="";
+    String idRoom = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +53,9 @@ public class EditRoomActivity extends AppCompatActivity {
         rgRoomKind = findViewById(R.id.rgRoomKind);
         rgStatus = findViewById(R.id.rgStatus);
         btnAdd = findViewById(R.id.btnAdd);
-
-
+        lvRoom = findViewById(R.id.lvRoom);
+        rooms = new ArrayList<>();
+        adapterAdminRoom adapter = new adapterAdminRoom(EditRoomActivity.this, rooms);
 
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +106,39 @@ public class EditRoomActivity extends AppCompatActivity {
 
             }
         });
+
+        db.collection("rooms")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        QuerySnapshot snapshots = task.getResult();
+                        if(task.isSuccessful()){
+                            for (QueryDocumentSnapshot doc : snapshots){
+                                String name = String.valueOf(doc.get("NameRoom"));
+                                String kind = String.valueOf(doc.get("KindRoom"));
+                                String status = String.valueOf(doc.get("Status"));
+                                String idRoom = doc.getId();
+                                int price = Integer.parseInt(doc.get("Price").toString());
+                                rooms.add(new room(name, kind, status, price,idRoom));
+//                                Toast.makeText(Home_Page.this, name + kind + status + price, Toast.LENGTH_SHORT).show();
+                            }
+                            lvRoom.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                });
+
+        lvRoom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                edtRoomName.setText(rooms.get(position).getRoomName());
+                edtPrice.setText(String.valueOf(rooms.get(position).getPrice()));
+                idRoom = rooms.get(position).getId();
+            }
+        });
+
+
 
     }
 }

@@ -6,7 +6,7 @@
     >
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/botron_item"
         android:orientation="vertical"
@@ -14,11 +14,32 @@
         android:layout_margin="5dp"
         android:layout_marginBottom="20dp">
 
-        <ImageView
-            android:layout_width="130dp"
-            android:layout_height="90dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/phong1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="90dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/phong1" />
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:gravity="right">
+               <ImageView
+                   android:layout_width="40dp"
+                   android:layout_height="40dp"
+                   android:src="@drawable/ic_baseline_edit_24"
+                   android:id="@+id/imgUpdate"
+                   android:layout_marginRight="15dp"/>
+               <ImageView
+                   android:layout_width="40dp"
+                   android:layout_height="40dp"
+                   android:src="@drawable/ic_baseline_delete_forever_24"
+                   android:id="@+id/imgDelete"/>
+           </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"

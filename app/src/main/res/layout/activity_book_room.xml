@@ -7,6 +7,26 @@
     tools:context=".BookRoomActivity"
     android:orientation="vertical">
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập thời gian đến"
+        android:id="@+id/edtTime"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đặt phòng"
+        android:id="@+id/btnBookRoom"/>
+
+<!--    <TimePicker-->
+<!--        android:id="@+id/time_picker"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content" />-->
+<!--    <DatePicker-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/date_picker"/>-->
 
 
 </LinearLayout>

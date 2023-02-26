@@ -43,7 +43,7 @@ public class SignUPActivity extends AppCompatActivity {
     TextView tvToLogin;
     ImageView hidePass,hidePassConfirm;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+    String id1 = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,8 +121,30 @@ public class SignUPActivity extends AppCompatActivity {
                                 public void onSuccess(DocumentReference documentReference) {
                                     Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                                     Toast.makeText(SignUPActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                                    id1 = documentReference.getId();
                                     Intent intent = new Intent(SignUPActivity.this, LoginActivity.class);
                                     startActivity(intent);
+
+                                    Map<String, Object> items = new HashMap<>();
+                                    items.put("fullname", "");
+                                    items.put("address", "");
+                                    items.put("phone", "");
+                                    items.put("email", "");
+                                    db.collection("Users").document(id1).collection("usersInfo")
+                                            .add(items)
+                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                @Override
+                                                public void onSuccess(DocumentReference documentReference) {
+                                                    Toast.makeText(SignUPActivity.this, "Tạo thành công", Toast.LENGTH_SHORT).show();
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(SignUPActivity.this, "Tạo thất bại", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -143,17 +165,16 @@ public class SignUPActivity extends AppCompatActivity {
 
 
 
-
     }
 
-    public Boolean checkKegistration(String username, String password){
-        final int counts = 0;
-        db.collection("Users")
-                .whereEqualTo("userName",username);
-
-
-        return false;
-
-    }
+//    public Boolean checkKegistration(String username, String password){
+//        final int counts = 0;
+//        db.collection("Users")
+//                .whereEqualTo("userName",username);
+//
+//
+//        return false;
+//
+//    }
 
 }

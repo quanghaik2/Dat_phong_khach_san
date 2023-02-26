@@ -37,6 +37,8 @@ public class Home_Page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle bundle = getIntent().getExtras();
+        String id = bundle.getString("id");
         setContentView(R.layout.activity_home_page);
         glRoom = findViewById(R.id.glRoom);
         imgToLogin = findViewById(R.id.imgToLogin);
@@ -47,9 +49,8 @@ public class Home_Page extends AppCompatActivity {
         btnDoi = findViewById(R.id.btnDoi);
         btnDon = findViewById(R.id.btnDon);
         btnTrong = findViewById(R.id.btnTrong);
-        adapterRoom adapter = new adapterRoom(Home_Page.this, rooms);
-        Bundle Bundle = getIntent().getExtras();
-        String id = Bundle.getString("id");
+        adapterRoom adapter = new adapterRoom(Home_Page.this, rooms,id);
+
 
         imgToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,25 +62,7 @@ public class Home_Page extends AppCompatActivity {
                 mBundle.putString("id1", id);
                 mIntent.putExtras(mBundle);
                 startActivity(mIntent);
-//                Map<String, Object> items = new HashMap<>();
-//                items.put("fullname", "");
-//                items.put("address", "");
-//                items.put("phone", "");
-//                items.put("email", "");
-//                db.collection("Users").document(id).collection("usersInfo")
-//                        .add(items)
-//                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                            @Override
-//                            public void onSuccess(DocumentReference documentReference) {
-//                                Toast.makeText(Home_Page.this, "Tạo thành công", Toast.LENGTH_SHORT).show();
-//                            }
-//                        })
-//                        .addOnFailureListener(new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull Exception e) {
-//                                Toast.makeText(Home_Page.this, "Tạo thất bại", Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
+
             }
         });
 
@@ -100,43 +83,44 @@ public class Home_Page extends AppCompatActivity {
 //                                Toast.makeText(Home_Page.this, name + kind + status + price, Toast.LENGTH_SHORT).show();
                             }
                             glRoom.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
                         }
                     }
                 });
 
-        btnVip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnHorizontalScrollView("Vip");
-            }
-        });
-
-        btnThuong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnHorizontalScrollView("Thường");
-            }
-        });
-
-        btnDon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnHorizontalScrollView("Đơn");
-            }
-        });
-
-        btnDoi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnHorizontalScrollView("Đôi");
-            }
-        });
+//        btnVip.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                btnHorizontalScrollView("Vip");
+//            }
+//        });
+//
+//        btnThuong.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                btnHorizontalScrollView("Thường");
+//            }
+//        });
+//
+//        btnDon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                btnHorizontalScrollView("Đơn");
+//            }
+//        });
+//
+//        btnDoi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                btnHorizontalScrollView("Đôi");
+//            }
+//        });
 
         btnTrong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ArrayList<room> room2 = new ArrayList<>();
-                adapterRoom rooms2 = new adapterRoom(Home_Page.this, room2);
+                adapterRoom rooms2 = new adapterRoom(Home_Page.this, room2,id);
                 String status = "Phòng trống";
                 db.collection("rooms")
                         .get()
@@ -162,30 +146,30 @@ public class Home_Page extends AppCompatActivity {
         });
     }
 
-    public void btnHorizontalScrollView(String kind){
-        ArrayList<room> room2 = new ArrayList<>();
-        adapterRoom rooms2 = new adapterRoom(Home_Page.this, room2);
-        db.collection("rooms")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        QuerySnapshot snapshots = task.getResult();
-                        if(task.isSuccessful()){
-                            for (QueryDocumentSnapshot doc : snapshots){
-                                if (String.valueOf(doc.get("KindRoom")).equals(kind)){
-                                    String name = String.valueOf(doc.get("NameRoom"));
-                                    String status = String.valueOf(doc.get("Status"));
-                                    int price = Integer.parseInt(doc.get("Price").toString());
-                                    String id = doc.getId();
-                                    room2.add(new room(name, kind, status, price,id));
-                                }
-                            }
-
-                            glRoom.setAdapter(rooms2);
-                        }
-                    }
-                });
-    }
+//    public void btnHorizontalScrollView(String kind){
+//        ArrayList<room> room2 = new ArrayList<>();
+//        adapterRoom rooms2 = new adapterRoom(Home_Page.this, room2, id);
+//        db.collection("rooms")
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        QuerySnapshot snapshots = task.getResult();
+//                        if(task.isSuccessful()){
+//                            for (QueryDocumentSnapshot doc : snapshots){
+//                                if (String.valueOf(doc.get("KindRoom")).equals(kind)){
+//                                    String name = String.valueOf(doc.get("NameRoom"));
+//                                    String status = String.valueOf(doc.get("Status"));
+//                                    int price = Integer.parseInt(doc.get("Price").toString());
+//                                    String id = doc.getId();
+//                                    room2.add(new room(name, kind, status, price,id));
+//                                }
+//                            }
+//
+//                            glRoom.setAdapter(rooms2);
+//                        }
+//                    }
+//                });
+//    }
 
 }
