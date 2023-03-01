@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập thời gian đến"
-        android:id="@+id/edtTime"/>
+        android:id="@+id/edtTime"
+        android:inputType="datetime"/>
 
     <Button
         android:layout_width="wrap_content"

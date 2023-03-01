@@ -35,7 +35,7 @@ public class UserActivity extends AppCompatActivity {
         editInfo = findViewById(R.id.editInfo);
         DelInfo = findViewById(R.id.DelInfo);
         Bundle Bundle = getIntent().getExtras();
-        String id = Bundle.getString("id1");
+        String id = Bundle.getString("idUser");
         userInfo Users = new userInfo("","","","");
         final String[] idUserInfo = {""};
         final CollectionReference reference = db.collection("Users").document(id).collection("usersInfo");

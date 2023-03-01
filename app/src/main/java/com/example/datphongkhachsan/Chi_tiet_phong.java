@@ -29,6 +29,7 @@ public class Chi_tiet_phong extends AppCompatActivity {
         String price =String.valueOf(bd.getInt("price",1));
         String status = bd.getString("status","");
         String idRoom = bd.getString("id","");
+        String idUser = bd.getString("idUser","");
 
         tvRoomName.setText(name);
         tvRoomKind.setText(kind);
@@ -40,6 +41,10 @@ public class Chi_tiet_phong extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Chi_tiet_phong.this , BookRoomActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("idRoom", idRoom);
+                bundle.putString("idUser",idUser);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });

@@ -109,49 +109,61 @@ public class SignUPActivity extends AppCompatActivity {
                 String confirm = edtConfirmPassword.getText().toString();
                 boolean admin = false;
                 if(password.equals(confirm) && (userAccount != null || password != null)){
-                    Map<String, Object> user = new HashMap<>();
-                    user.put("userName",userAccount);
-                    user.put("passWord",password);
-                    user.put("admin",admin);
-
-                    db.collection("Users")
-                            .add(user)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    db.collection("Users").whereEqualTo("userName",userAccount)
+                            .get()
+                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                                 @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                                    Toast.makeText(SignUPActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                                    id1 = documentReference.getId();
-                                    Intent intent = new Intent(SignUPActivity.this, LoginActivity.class);
-                                    startActivity(intent);
+                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                    if (queryDocumentSnapshots.isEmpty()){
+                                        Map<String, Object> user = new HashMap<>();
+                                        user.put("userName",userAccount);
+                                        user.put("passWord",password);
+                                        user.put("admin",admin);
 
-                                    Map<String, Object> items = new HashMap<>();
-                                    items.put("fullname", "");
-                                    items.put("address", "");
-                                    items.put("phone", "");
-                                    items.put("email", "");
-                                    db.collection("Users").document(id1).collection("usersInfo")
-                                            .add(items)
-                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                                @Override
-                                                public void onSuccess(DocumentReference documentReference) {
-                                                    Toast.makeText(SignUPActivity.this, "Tạo thành công", Toast.LENGTH_SHORT).show();
-                                                }
-                                            })
-                                            .addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Toast.makeText(SignUPActivity.this, "Tạo thất bại", Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
+                                        db.collection("Users")
+                                                .add(user)
+                                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                    @Override
+                                                    public void onSuccess(DocumentReference documentReference) {
+                                                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                                                        Toast.makeText(SignUPActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                                                        id1 = documentReference.getId();
+                                                        Intent intent = new Intent(SignUPActivity.this, LoginActivity.class);
+                                                        startActivity(intent);
 
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.w(TAG, "Error adding document", e);
-                                    Toast.makeText(SignUPActivity.this, "Thất bại", Toast.LENGTH_SHORT).show();
+                                                        Map<String, Object> items = new HashMap<>();
+                                                        items.put("fullname", "");
+                                                        items.put("address", "");
+                                                        items.put("phone", "");
+                                                        items.put("email", "");
+                                                        db.collection("Users").document(id1).collection("usersInfo")
+                                                                .add(items)
+                                                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                                    @Override
+                                                                    public void onSuccess(DocumentReference documentReference) {
+                                                                        Toast.makeText(SignUPActivity.this, "Tạo thành công", Toast.LENGTH_SHORT).show();
+                                                                    }
+                                                                })
+                                                                .addOnFailureListener(new OnFailureListener() {
+                                                                    @Override
+                                                                    public void onFailure(@NonNull Exception e) {
+                                                                        Toast.makeText(SignUPActivity.this, "Tạo thất bại", Toast.LENGTH_SHORT).show();
+                                                                    }
+                                                                });
+
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        Log.w(TAG, "Error adding document", e);
+                                                        Toast.makeText(SignUPActivity.this, "Thất bại", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                    }
+                                    else {
+                                        Toast.makeText(SignUPActivity.this, "Tên đăng nhập đã tồn tại", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             });
 

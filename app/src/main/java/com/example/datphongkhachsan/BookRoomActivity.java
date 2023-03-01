@@ -3,6 +3,7 @@ package com.example.datphongkhachsan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +46,11 @@ public class BookRoomActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Toast.makeText(BookRoomActivity.this, "Đặt phòng thành công", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(BookRoomActivity.this, InfoBookRoom.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putString("idUser",idUser);
+                                intent.putExtras(bundle);
+                                startActivity(intent);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
