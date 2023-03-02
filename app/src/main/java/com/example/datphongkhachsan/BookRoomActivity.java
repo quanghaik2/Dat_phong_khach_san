@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DateFormat;
@@ -29,6 +30,7 @@ public class BookRoomActivity extends AppCompatActivity {
     EditText edtTime;
     Button btnBookRoom;
     FirebaseFirestore db;
+    room rm ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +82,7 @@ public class BookRoomActivity extends AppCompatActivity {
         btnBookRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Map<String,Object> items = new HashMap<>();
                 items.put("Room",idRoom);
                 items.put("User",idUser);
@@ -96,6 +99,9 @@ public class BookRoomActivity extends AppCompatActivity {
                                 bundle.putString("idUser",idUser);
                                 intent.putExtras(bundle);
                                 startActivity(intent);
+                                Map<String,Object> status = new HashMap<>();
+                                status.put("Status","Đã thuê");
+                                db.collection("rooms").document(idRoom).update(status);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

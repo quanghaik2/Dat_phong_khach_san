@@ -17,6 +17,10 @@ import android.widget.TextView;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.List;
 
 
@@ -24,7 +28,7 @@ public class adapterRoom extends BaseAdapter {
     Context context;
     List<room> data;
     String idUser;
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public adapterRoom(Context context, List<room> data, String idUser) {
         this.context = context;
@@ -83,7 +87,7 @@ public class adapterRoom extends BaseAdapter {
                 bundle.putInt("price",data.get(position).getPrice());
                 bundle.putString("status",data.get(position).getStatus());
                 bundle.putString("id",data.get(position).getId());
-                bundle.putString("idUserInfo",idUser);
+                bundle.putString("idUser",idUser);
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
@@ -92,12 +96,37 @@ public class adapterRoom extends BaseAdapter {
         btnBookRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, BookRoomActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("idRoom", data.get(position).getId());
-                bundle.putString("idUser",idUser);
-                intent.putExtras(bundle);
-                context.startActivity(intent);
+
+                if (data.get(position).getStatus().equals("Trống") ){
+                    Intent intent = new Intent(context, BookRoomActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("idRoom", data.get(position).getId());
+                    bundle.putString("idUser",idUser);
+                    intent.putExtras(bundle);
+                    context.startActivity(intent);
+                    db.collection("BookRoom").whereEqualTo("Room",data.get(position).getId())
+                            .get()
+                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                @Override
+                                public void onSuccess(QuerySnapshot documentSnapshots) {
+                                    if (documentSnapshots.isEmpty()){
+                                        Intent intent = new Intent(context , BookRoomActivity.class);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("idRoom", data.get(position).getId());
+                                        bundle.putString("idUser",idUser);
+                                        Toast.makeText(context, idUser, Toast.LENGTH_SHORT).show();
+                                        intent.putExtras(bundle);
+                                        context.startActivity(intent);
+                                    }
+                                    else {
+                                        Toast.makeText(context, "Bạn đã đặt phòng này rồi", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
+                else {
+                    Toast.makeText(context, "Phòng này đã được đặt", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

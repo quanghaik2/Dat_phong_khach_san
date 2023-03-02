@@ -16,7 +16,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class adapterBookRoomHotel extends BaseAdapter {
     Context context;
@@ -93,8 +95,12 @@ public class adapterBookRoomHotel extends BaseAdapter {
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Hủy đặt phòng thành công", Toast.LENGTH_SHORT).show();
 //                                Toast.makeText(context, datas.get(position).getIdBookRoomHotel(), Toast.LENGTH_SHORT).show();
+                                Map<String,Object> status = new HashMap<>();
+                                status.put("Status","Trống");
+                                db.collection("rooms").document(datas.get(position).getIdRoom()).update(status);
+                                adapterBookRoomHotel.this.notifyDataSetChanged();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

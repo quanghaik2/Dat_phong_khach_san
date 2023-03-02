@@ -53,6 +53,7 @@ public class InfoBookRoom extends AppCompatActivity {
 
                             }
                             lvBookRoomHotel.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
                         }
                     }
                 });
