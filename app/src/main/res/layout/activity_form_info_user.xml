@@ -12,11 +12,13 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="@color/Lavender" >
-            <ImageView
-                android:id="@+id/imgBack"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_baseline_close_24" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Xửa thông tin liên hệ"
+                android:textSize="23sp"
+                android:textColor="@color/white"/>
+
         </LinearLayout>
 
         <TextView
@@ -37,13 +39,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Số điện thoại"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:inputType="phone"/>
         <EditText
             android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:inputType="textEmailAddress"/>
 
     <TextView
         android:layout_width="match_parent"

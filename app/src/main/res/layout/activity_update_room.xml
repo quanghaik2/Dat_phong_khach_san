@@ -15,7 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập giá phòng"
-        android:id="@+id/edtPrice"/>
+        android:id="@+id/edtPrice"
+        android:inputType="number"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,25 +36,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Vip"
-                android:id="@+id/rbVip"
+                android:id="@+id/rbVipUpdate"
                 android:checked="true"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thường"
-                android:id="@+id/rbThuong"
+                android:id="@+id/rbThuongUpdate"
                 android:checked="false"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đơn"
-                android:id="@+id/rbDon"
+                android:id="@+id/rbDonUpdate"
                 android:checked="false"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đôi"
-                android:id="@+id/rbDoi"
+                android:id="@+id/rbDoiUpdate"
                 android:checked="false"/>
         </RadioGroup>
     </LinearLayout>
@@ -76,13 +77,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Trống"
-                android:id="@+id/rbTrong"
+                android:id="@+id/rbTrongUpdate"
                 android:checked="true"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đã thuê"
-                android:id="@+id/rbDaThue"
+                android:id="@+id/rbDaThueUpdate"
                 android:checked="false"/>
 
         </RadioGroup>

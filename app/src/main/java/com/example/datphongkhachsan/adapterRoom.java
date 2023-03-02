@@ -25,10 +25,12 @@ public class adapterRoom extends BaseAdapter {
     List<room> data;
     String idUser;
 
+
     public adapterRoom(Context context, List<room> data, String idUser) {
         this.context = context;
         this.data = data;
         this.idUser = idUser;
+
     }
 
     @Override
@@ -81,7 +83,7 @@ public class adapterRoom extends BaseAdapter {
                 bundle.putInt("price",data.get(position).getPrice());
                 bundle.putString("status",data.get(position).getStatus());
                 bundle.putString("id",data.get(position).getId());
-                Toast.makeText(context,data.get(position).getId()  + " " + data.get(position).getRoomName() , Toast.LENGTH_SHORT).show();
+                bundle.putString("idUserInfo",idUser);
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }

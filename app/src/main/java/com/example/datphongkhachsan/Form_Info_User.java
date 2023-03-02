@@ -37,11 +37,6 @@ public class Form_Info_User extends AppCompatActivity {
         edtAddress = findViewById(R.id.edtAddress);
         edtEmail = findViewById(R.id.edtEmail);
         edtPhone = findViewById(R.id.edtPhone);
-        imgBack = findViewById(R.id.imgBack);
-        String fullName = edtFullName.getText().toString();
-        String address = edtAddress.getText().toString();
-        String phone = edtPhone.getText().toString();
-        String email = edtEmail.getText().toString();
         db = FirebaseFirestore.getInstance();
 //        final CollectionReference reference = db.collection("Users");
         btnComplete = findViewById(R.id.btnComplete);
@@ -61,7 +56,11 @@ public class Form_Info_User extends AppCompatActivity {
         btnComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                    if (fullName == "" || address == "" || phone == "" || email == ""){
+                String fullName = edtFullName.getText().toString();
+                String address = edtAddress.getText().toString();
+                String phone = edtPhone.getText().toString();
+                String email = edtEmail.getText().toString();
+                    if (fullName != null && address != null && phone != null && email != null){
                             Map<String, Object> items = new HashMap<>();
                             items.put("fullname", edtFullName.getText().toString());
                             items.put("address", edtAddress.getText().toString());
@@ -74,6 +73,11 @@ public class Form_Info_User extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Toast.makeText(Form_Info_User.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(Form_Info_User.this, UserActivity.class);
+                                                            Bundle bundle1 = new Bundle();
+                                                            bundle1.putString("id1",idUser);
+                                                            intent.putExtras(bundle1);
+                                            startActivity(intent);
                                         }
                                     })
                                     .addOnFailureListener(new OnFailureListener() {
@@ -85,25 +89,14 @@ public class Form_Info_User extends AppCompatActivity {
 
 
 
-//                }
-//                    else {
-//                        Toast.makeText(Form_Info_User.this, "Hãy điền đủ thông tin", Toast.LENGTH_SHORT).show();
-//                    }
+                }
+                    else {
+                        Toast.makeText(Form_Info_User.this, "Hãy điền đủ thông tin", Toast.LENGTH_SHORT).show();
+                    }
 
 
             }
         });
 
-//        imgBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Form_Info_User.this, Home_Page.class);
-////                Bundle bundle1 = new Bundle();
-////                bundle1.putString("id1",idUser);
-////                intent.putExtras(bundle1);
-//                startActivity(intent);
-//
-//            }
-//        });
     }
 }

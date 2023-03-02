@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                 if (task.isSuccessful()) {
-                                   if(task.getResult() != null) {
+                                   if(task.getResult().size() > 0) {
                                        String id = "";
                                        Boolean checkadmin = false;
                                        for (QueryDocumentSnapshot document : task.getResult()) {
@@ -113,6 +113,9 @@ public class LoginActivity extends AppCompatActivity {
                                            startActivity(intent);
                                        }
 
+                                   }
+                                   else {
+                                       Toast.makeText(LoginActivity.this, "Sai tên đăng nhập hoặc mật khẩu", Toast.LENGTH_SHORT).show();
                                    }
                                 } else {
                                     Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();

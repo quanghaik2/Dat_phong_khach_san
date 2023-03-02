@@ -3,6 +3,7 @@ package com.example.datphongkhachsan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,62 +40,75 @@ public class UpdateRoom extends AppCompatActivity {
         idRoom = bundle.getString("idRooom","");
         edtPrice = findViewById(R.id.edtPrice);
         edtRoomName = findViewById(R.id.edtRoomName);
-        rbVip = findViewById(R.id.rbVip);
-        rbDon = findViewById(R.id.rbDon);
-        rbDoi = findViewById(R.id.rbDoi);
-        rbThuong = findViewById(R.id.rbThuong);
-        rbTrong = findViewById(R.id.rbTrong);
-        rbDaThue = findViewById(R.id.rbDaThue);
+        rbVip = findViewById(R.id.rbVipUpdate);
+        rbDon = findViewById(R.id.rbDonUpdate);
+        rbDoi = findViewById(R.id.rbDoiUpdate);
+        rbThuong = findViewById(R.id.rbThuongUpdate);
+        rbTrong = findViewById(R.id.rbTrongUpdate);
+        rbDaThue = findViewById(R.id.rbDaThueUpdate);
         rgRoomKind = findViewById(R.id.rgRoomKind);
         rgStatus = findViewById(R.id.rgStatus);
         btnUpdate = findViewById(R.id.btnUpdate);
         rooms = new ArrayList<>();
-        if(rbVip.isChecked()) {
-            // RadioButton 1 được chọn
-            roomKind = rbVip.getText().toString();
-        } else if(rbThuong.isChecked()) {
-            // RadioButton 2 được chọn
-            roomKind = rbThuong.getText().toString();
-        } else if(rbDon.isChecked()) {
-            // RadioButton 3 được chọn
-            roomKind = rbDoi.getText().toString();
-        } else if(rbDoi.isChecked()){
-            // Không có RadioButton nào được chọn
-            roomKind = rbDon.getText().toString();
-        }
-
-        if(rbTrong.isChecked()) {
-            // RadioButton 1 được chọn
-            roomStatus = rbTrong.getText().toString();
-        } else if(rbDaThue.isChecked()) {
-            // RadioButton 2 được chọn
-            roomStatus = rbDaThue.getText().toString();
-        }
 
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Map<String, Object> items = new HashMap<>();
-                items.put("KindRoom", edtRoomName.getText().toString());
-                items.put("Price", edtPrice.getText().toString());
-                items.put("KindRoom", roomKind);
-                items.put("Status", roomStatus);
-                Toast.makeText(UpdateRoom.this, idRoom, Toast.LENGTH_SHORT).show();
-                db.collection("rooms").document(idRoom)
-                        .update(items)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(UpdateRoom.this, "Sửa phòng thành công", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(UpdateRoom.this, "Sửa phòng thất bại", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                if(rbVip.isChecked()) {
+                    // RadioButton 1 được chọn
+                    roomKind = rbVip.getText().toString();
+                } else if(rbThuong.isChecked()) {
+                    // RadioButton 2 được chọn
+                    roomKind = rbThuong.getText().toString();
+                } else if(rbDon.isChecked()) {
+                    // RadioButton 3 được chọn
+                    roomKind = rbDoi.getText().toString();
+                } else if(rbDoi.isChecked()){
+                    roomKind = rbDon.getText().toString();
+                }
+
+                if(rbTrong.isChecked()) {
+                    // RadioButton 1 được chọn
+                    roomStatus = rbTrong.getText().toString();
+                } else if(rbDaThue.isChecked()) {
+                    // RadioButton 2 được chọn
+                    roomStatus = rbDaThue.getText().toString();
+                }
+                    String roomName = edtRoomName.getText().toString();
+                    String roomPrice = edtPrice.getText().toString();
+                if(roomName != null || roomPrice != null ){
+                    Map<String, Object> items = new HashMap<>();
+                    items.put("NameRoom", edtRoomName.getText().toString());
+                    items.put("Price", edtPrice.getText().toString());
+                    items.put("KindRoom", roomKind);
+                    items.put("Status", roomStatus);
+                    db.collection("rooms").document(idRoom)
+                            .update(items)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Intent intent = new Intent(UpdateRoom.this , EditRoomActivity.class);
+                                    Bundle bd = new Bundle();
+                                    bd.putString("NameRoomUpdate",roomName);
+                                    bd.putString("KindRoomUpdate",roomKind);
+                                    bd.putString("PriceUpdate",roomPrice);
+                                    bd.putString("StatusUpdate",roomStatus);
+                                    bd.putString("IdUpdate",idRoom);
+                                    intent.putExtras(bd);
+                                    startActivity(intent);
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(UpdateRoom.this, "Sửa phòng thất bại", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+                else {
+                    Toast.makeText(UpdateRoom.this, "Không được để trống phần nhập", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

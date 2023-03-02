@@ -93,6 +93,16 @@
         </LinearLayout>
     </HorizontalScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xem phòng đã thuê"
+            android:id="@+id/btnToBookRoomHotel"/>
+    </LinearLayout>
+
     <GridView
         android:layout_marginTop="20dp"
         android:numColumns="auto_fit"
