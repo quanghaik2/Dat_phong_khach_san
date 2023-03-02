@@ -3,13 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="203dp"
+        android:src="@drawable/phong1" />
    <LinearLayout
+       android:layout_marginTop="30dp"
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:text="Phòng: "/>
+           android:text="Phòng số: "
+           android:textSize="20dp"
+           android:textColor="@color/black"
+           android:textStyle="bold"/>
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
@@ -22,7 +31,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phòng: "/>
+            android:text="Giá phòng: "
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,17 +47,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phòng: "/>
+            android:text="Thời gian đến: "
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
             android:id="@+id/tvDateTime"/>
     </LinearLayout>
+
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/btnAbortRoom"
-        android:src="@drawable/ic_baseline_delete_forever_24"/>
+        android:layout_width="69dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_baseline_delete_forever_24" />
 
 </LinearLayout>

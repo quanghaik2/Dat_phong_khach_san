@@ -5,72 +5,104 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserActivity"
+    android:paddingHorizontal="10dp"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:src="@drawable/ic_baseline_account_circle_24" />
+
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên: "/>
+            android:text="Họ và Tên: "
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingRight="10dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hai"
-            android:id="@+id/tvName"/>
+            android:text="Nguyễn Văn A"
+            android:id="@+id/tvName"
+            android:textSize="20dp"/>
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên: "/>
+            android:text="Sđt: "
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingRight="75dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hai"
-            android:id="@+id/tvPhone"/>
+            android:text="0123456789"
+            android:id="@+id/tvPhone"
+            android:textSize="20dp"/>
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên: "/>
+            android:text="Email: "
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingRight="55dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hai"
-            android:id="@+id/tvAddress"/>
+            android:text="abc@gmail.com"
+            android:id="@+id/tvAddress"
+            android:textSize="20dp"/>
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên: "/>
+            android:text="Địa chỉ: "
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingRight="40dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hai"
-            android:id="@+id/tvEmail"/>
+            android:text="Tỉnh/TP, quận/huyện,phường/xã "
+            android:id="@+id/tvEmail"
+            android:textSize="20dp"/>
     </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sửa thông tin"
-        android:id="@+id/editInfo"/>
+        android:text="Sửa thông tin cá nhân"
+        android:id="@+id/editInfo"
+        android:layout_marginTop="30dp"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Xóa toàn bộ thông tin"
-        android:id="@+id/DelInfo"/>
+        android:id="@+id/DelInfo" />
 </LinearLayout>

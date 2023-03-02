@@ -52,7 +52,7 @@
                 android:id="@+id/btnVip"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
                 android:text="Vip"
                 android:background="@drawable/botron_buttom"/>
 
@@ -60,8 +60,7 @@
                 android:id="@+id/btnThuong"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
                 android:text="Thường"
                 android:background="@drawable/botron_buttom"/>
 
@@ -69,7 +68,6 @@
                 android:id="@+id/btnTrong"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:text="Đang trống"
                 android:background="@drawable/botron_buttom"/>
 
@@ -95,12 +93,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Xem phòng đã thuê"
-            android:id="@+id/btnToBookRoomHotel"/>
+            android:id="@+id/btnToBookRoomHotel"
+            android:background="@drawable/botron_buttom"
+            />
     </LinearLayout>
 
     <GridView

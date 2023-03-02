@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:hint="Nhập thời gian đến"
         android:id="@+id/edtTime"
-        android:inputType="datetime"/>
+        android:allowClickWhenDisabled="true"
+        android:inputType="date"/>
 
     <Button
         android:layout_width="wrap_content"

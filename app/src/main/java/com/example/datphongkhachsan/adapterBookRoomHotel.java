@@ -70,6 +70,8 @@ public class adapterBookRoomHotel extends BaseAdapter {
         TextView tvDateTime = convertView.findViewById(R.id.tvDateTime);
         ImageButton btnAbortRoom = convertView.findViewById(R.id.btnAbortRoom);
 
+
+
         db.collection("rooms").document(datas.get(position).getIdRoom())
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
