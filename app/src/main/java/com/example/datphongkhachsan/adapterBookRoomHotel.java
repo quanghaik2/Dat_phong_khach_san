@@ -87,13 +87,13 @@ public class adapterBookRoomHotel extends BaseAdapter {
         btnAbortRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db.collection("BookRoom").document(datas.get(position).getIdRoom()).delete()
+                db.collection("BookRoom").document(datas.get(position).getIdBookRoomHotel()).delete()
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
                                 Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(context, datas.get(position).getIdBookRoomHotel(), Toast.LENGTH_SHORT).show();
                             }
-//                            adapterBookRoomHotel.this.notifyDataSetChanged();
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -101,6 +101,7 @@ public class adapterBookRoomHotel extends BaseAdapter {
                                 Toast.makeText(context, "Xóa thất bại", Toast.LENGTH_SHORT).show();
                             }
                         });
+                adapterBookRoomHotel.this.notifyDataSetChanged();
             }
         });
 

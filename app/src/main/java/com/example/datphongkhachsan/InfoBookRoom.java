@@ -48,11 +48,11 @@ public class InfoBookRoom extends AppCompatActivity {
                         }
                         else {
                             for (QueryDocumentSnapshot doc : documentSnapshots){
-                                bookRoomHotels.add(new BookRoomHotel(doc.get("Room").toString(),doc.get("User").toString(),doc.get("Time").toString()));
+                                bookRoomHotels.add(new BookRoomHotel(doc.get("Room").toString(),doc.get("User").toString(),doc.get("Time").toString(),
+                                        doc.getId()));
 
                             }
                             lvBookRoomHotel.setAdapter(adapter);
-
                         }
                     }
                 });

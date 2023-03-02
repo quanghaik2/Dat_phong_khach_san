@@ -84,7 +84,6 @@ public class adapterRoom extends BaseAdapter {
                 bundle.putString("status",data.get(position).getStatus());
                 bundle.putString("id",data.get(position).getId());
                 bundle.putString("idUserInfo",idUser);
-                Toast.makeText(context,data.get(position).getId()  + " " + data.get(position).getRoomName() , Toast.LENGTH_SHORT).show();
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }

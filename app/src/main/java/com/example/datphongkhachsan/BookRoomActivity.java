@@ -40,6 +40,7 @@ public class BookRoomActivity extends AppCompatActivity {
                 items.put("Room",idRoom);
                 items.put("User",idUser);
                 items.put("Time", edtTime.getText().toString());
+                Toast.makeText(BookRoomActivity.this, idUser, Toast.LENGTH_SHORT).show();
                 db.collection("BookRoom")
                         .add(items)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
