@@ -5,19 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BookRoomActivity"
-    android:orientation="vertical">
-    <EditText
+    android:orientation="vertical"
+    android:paddingHorizontal="10dp">
+
+    <TextView
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập tên phòng"
-        android:id="@+id/edtRoomName"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nhập giá phòng"
-        android:id="@+id/edtPrice"
-        android:inputType="number"/>
+        android:text="Sửa thông tin phòng"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:textColor="@color/Lavender"
+        android:fontFamily="@font/montserrat"
+        android:textStyle="bold"/>
+
     <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/edittext_bkg"
+        android:gravity="center">
+        <EditText
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập tên phòng"
+            android:id="@+id/edtRoomName"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/edittext_bkg"
+        android:gravity="center">
+        <EditText
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập giá phòng"
+            android:id="@+id/edtPrice"
+            android:inputType="number"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -25,13 +57,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Loại phòng: "/>
+            android:text="Loại phòng: "
+            android:textColor="@color/Lavender"
+            android:fontFamily="@font/montserrat"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center"/>
         <RadioGroup
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/rgRoomKind"
             android:orientation="horizontal"
-            android:layout_marginTop="-12dp">
+            android:layout_marginTop="-10dp">
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,6 +102,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
+            android:textSize="20sp"
+            android:textColor="@color/Lavender"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tình trạng phòng: "/>
@@ -89,16 +131,18 @@
         </RadioGroup>
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="45dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
         <Button
-            android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
             android:text="Hoàn thành"
-            android:id="@+id/btnUpdate"/>
+            android:id="@+id/btnUpdate"
+            android:background="@drawable/buttom_bkg"/>
 
     </LinearLayout>
 

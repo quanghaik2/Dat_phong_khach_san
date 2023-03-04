@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -32,8 +33,11 @@ public class Home_Page extends AppCompatActivity {
     FirebaseFirestore db ;
     ImageView imgToLogin;
 
-    Button btnThuong, btnVip,btnDoi,btnDon,btnTrong,btnBookRoomHotel;
+    Button btnThuong, btnVip,btnDoi,btnDon,btnTrong;
+    FloatingActionButton btnBookRoomHotel;
     String idUsers = "";
+    adapterRoom adapter;
+    room rm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +58,8 @@ public class Home_Page extends AppCompatActivity {
         btnTrong = findViewById(R.id.btnTrong);
 
         btnBookRoomHotel = findViewById(R.id.btnToBookRoomHotel);
-        adapterRoom adapter = new adapterRoom(Home_Page.this, rooms,id);
 
+        adapter = new adapterRoom(Home_Page.this, rooms,id);
 
         imgToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +89,7 @@ public class Home_Page extends AppCompatActivity {
                                 String status = String.valueOf(doc.get("Status"));
                                 String idRoom = doc.getId();
                                 int price = Integer.parseInt(doc.get("Price").toString());
+
                                 rooms.add(new room(name, kind, status, price,idRoom));
 //                                Toast.makeText(Home_Page.this, name + kind + status + price, Toast.LENGTH_SHORT).show();
                             }
@@ -146,6 +151,7 @@ public class Home_Page extends AppCompatActivity {
                                         }
                                     }
                                     glRoom.setAdapter(rooms2);
+                                    adapter.notifyDataSetChanged();
                                 }
                             }
                         });
@@ -186,6 +192,7 @@ public class Home_Page extends AppCompatActivity {
                             }
 
                             glRoom.setAdapter(rooms2);
+                            adapter.notifyDataSetChanged();
                         }
                     }
                 });

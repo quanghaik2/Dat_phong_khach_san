@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -41,7 +42,8 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:paddingHorizontal="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -95,21 +97,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
-        <Button
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Xem phòng đã thuê"-->
+<!--            android:id="@+id/btnToBookRoomHotel"-->
+<!--            android:background="@drawable/botron_buttom"-->
+<!--            />-->
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <GridView
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:numColumns="auto_fit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/glRoom"
+            ></GridView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Xem phòng đã thuê"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:id="@+id/btnToBookRoomHotel"
-            android:background="@drawable/botron_buttom"
-            />
-    </LinearLayout>
+            app:backgroundTint="@color/Lavender"
 
-    <GridView
-        android:layout_marginTop="20dp"
-        android:numColumns="auto_fit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/glRoom"
-        ></GridView>
+        />
+
+    </RelativeLayout>
+
 
 </LinearLayout>

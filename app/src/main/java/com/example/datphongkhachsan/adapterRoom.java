@@ -75,7 +75,7 @@ public class adapterRoom extends BaseAdapter {
         }
         tvStatus.setTextColor(Color.parseColor(color));
 
-        tvPrice.setText(String.valueOf(data.get(position).getPrice()) + ".đ");
+        tvPrice.setText(String.valueOf(data.get(position).getPrice()) + ".VND/Giờ");
 
         btnRoomDetail.setOnClickListener(new View.OnClickListener() {
             @Override

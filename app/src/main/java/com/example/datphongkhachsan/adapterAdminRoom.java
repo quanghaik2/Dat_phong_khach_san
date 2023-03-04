@@ -59,7 +59,7 @@ public class adapterAdminRoom extends BaseAdapter {
         tvNameRoom.setText(data.get(position).getRoomName());
         tvKindRoom.setText(data.get(position).getKindRoom());
         tvStatus.setText(data.get(position).getStatus());
-        tvPrice.setText(String.valueOf(data.get(position).getPrice()) + ".đ");
+        tvPrice.setText("Giá: "+String.valueOf(data.get(position).getPrice()) + ".VND/Giờ");
         imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
