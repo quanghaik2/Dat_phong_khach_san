@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".BookRoomActivity"
     android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đặt phòng"
+        android:textSize="40sp"
+        android:textColor="@color/white"
+        android:background="@color/Lavender"
+        android:gravity="center"
+        android:padding="10dp"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/phong1"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -13,15 +28,22 @@
         android:hint="Nhập thời gian đến"
         android:id="@+id/edtTime"
         android:allowClickWhenDisabled="true"
-        android:inputType="date"/>
+        android:inputType="date"
+        android:textSize="30dp"
+        android:gravity="center|left"
+        android:padding="10dp"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="30dp"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đặt phòng"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:text="Xác nhận"
         android:id="@+id/btnBookRoom"
         android:background="@drawable/buttom_bkg"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
 
 <!--    <TimePicker-->
 <!--        android:id="@+id/time_picker"-->
