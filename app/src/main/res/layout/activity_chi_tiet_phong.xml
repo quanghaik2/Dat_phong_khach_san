@@ -5,66 +5,91 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Chi_tiet_phong"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên phòng: "/>
+            android:text="Tên phòng: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginRight="33dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="P01"
-            android:id="@+id/tvRoomName"/>
+            android:text="họ và tên"
+            android:id="@+id/tvRoomName"
+            android:textSize="20dp"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên phòng: "/>
+            android:text="Số điện thoại: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginRight="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="P01"
+            android:text="số điện thoại"
+            android:textSize="20dp"
             android:id="@+id/tvRoomeKind"/>
     </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tên phòng: "/>
+                android:text="Email: "
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginRight="80dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="P01"
+                android:text="email"
+                android:textSize="20dp"
                 android:id="@+id/tvPrice"/>
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên phòng: "/>
+            android:text="Địa chỉ: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginRight="70dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="P01"
+            android:text="địa chỉ "
+            android:textSize="20dp"
             android:id="@+id/tvStatus"/>
 
     </LinearLayout>
@@ -73,6 +98,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Đặt phòng"
-        android:id="@+id/btnBookRoom"/>
+        android:id="@+id/btnBookRoom"
+        android:background="@drawable/buttom_bkg"
+        android:layout_marginTop="20dp"/>
 
 </LinearLayout>

@@ -142,7 +142,8 @@
             android:layout_height="70dp"
             android:text="Hoàn thành"
             android:id="@+id/btnUpdate"
-            android:background="@drawable/buttom_bkg"/>
+            android:background="@drawable/buttom_bkg"
+            />
 
     </LinearLayout>
 

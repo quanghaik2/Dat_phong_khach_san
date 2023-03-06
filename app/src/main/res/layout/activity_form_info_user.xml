@@ -5,19 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Form_Info_User"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="@color/Lavender" >
+            android:layout_height="50dp"
+            android:background="@color/Lavender"
+            >
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Xửa thông tin liên hệ"
+                android:text="Sửa thông tin liên hệ"
                 android:textSize="23sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:layout_gravity="left||center"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="right||center">
+                <ImageView
+                    android:id="@+id/imgclose"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_baseline_close_24"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
 

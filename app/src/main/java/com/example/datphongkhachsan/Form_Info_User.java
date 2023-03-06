@@ -26,6 +26,7 @@ import java.util.Map;
 public class Form_Info_User extends AppCompatActivity {
     EditText edtFullName, edtEmail, edtPhone,edtAddress;
     Button btnComplete;
+    ImageView imageclose;
 //    List<userInfo> users = new ArrayList<userInfo>();
     FirebaseFirestore db;
     ImageView imgBack;
@@ -51,6 +52,7 @@ public class Form_Info_User extends AppCompatActivity {
         edtAddress.setText(bdAddress);
         edtPhone.setText(bdPhone);
         edtEmail.setText(bdEmail);
+        imageclose = findViewById(R.id.imgclose);
 
 
         btnComplete.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +97,17 @@ public class Form_Info_User extends AppCompatActivity {
                     }
 
 
+            }
+        });
+        imageclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Form_Info_User.this, UserActivity.class);
+                Bundle mBundle = new Bundle();
+
+                mBundle.putString("idUser", idUser);
+                intent.putExtras(mBundle);
+                startActivity(intent);
             }
         });
 

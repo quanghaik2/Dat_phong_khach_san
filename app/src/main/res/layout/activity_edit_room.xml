@@ -97,7 +97,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thêm phòng"
-            android:id="@+id/btnAdd"/>
+            android:id="@+id/btnAdd"
+            android:background="@drawable/buttom_bkg"/>
 
     </LinearLayout>
 
