@@ -9,14 +9,14 @@
     android:paddingHorizontal="10dp">
 
     <TextView
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_width="340sp"
         android:layout_height="wrap_content"
-        android:text="Sửa thông tin phòng"
-        android:textSize="40sp"
+        android:text="Sửa thông tin phòng"
+        android:layout_gravity="center"
         android:gravity="center"
+        android:textSize="45sp"
         android:textColor="@color/Lavender"
-        android:fontFamily="@font/montserrat"
         android:textStyle="bold"/>
 
     <LinearLayout
@@ -141,6 +141,8 @@
             android:layout_width="250dp"
             android:layout_height="70dp"
             android:text="Hoàn thành"
+            android:textStyle="bold"
+            android:textSize="20dp"
             android:id="@+id/btnUpdate"
             android:background="@drawable/buttom_bkg"
             />

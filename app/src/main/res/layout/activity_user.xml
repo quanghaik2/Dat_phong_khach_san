@@ -108,17 +108,23 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sửa thông tin cá nhân"
         android:id="@+id/editInfo"
-        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
         android:background="@drawable/buttom_bkg"/>
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Xóa toàn bộ thông tin"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
         android:id="@+id/DelInfo"
         android:background="@drawable/buttom_bkg"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="15dp"/>
 </LinearLayout>

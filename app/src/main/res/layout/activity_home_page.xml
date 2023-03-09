@@ -56,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:text="Vip"
+                android:textStyle="bold"
                 android:background="@drawable/botron_buttom"/>
 
             <Button
@@ -64,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:text="Thường"
+                android:textStyle="bold"
                 android:background="@drawable/botron_buttom"/>
 
             <Button
@@ -71,6 +73,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Đang trống"
+                android:textStyle="bold"
                 android:background="@drawable/botron_buttom"/>
 
             <Button
@@ -79,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="Phòng đơn"
+                android:textStyle="bold"
                 android:background="@drawable/botron_buttom"/>
 
             <Button
@@ -87,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="Phòng đôi"
+                android:textStyle="bold"
                 android:background="@drawable/botron_buttom"/>
 
 

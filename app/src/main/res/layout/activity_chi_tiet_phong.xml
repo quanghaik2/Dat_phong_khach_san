@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Chi tiết phòng"
         android:textSize="30dp"
+        android:textStyle="bold"
         android:textColor="@color/white"
         android:background="@color/Lavender"
         android:gravity="center"/>
@@ -125,6 +126,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Đặt phòng"
+        android:textStyle="bold"
         android:id="@+id/btnBookRoom"
         android:background="@drawable/buttom_bkg"
         android:layout_marginTop="20dp"

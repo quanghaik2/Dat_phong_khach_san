@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:text="Sửa thông tin phòng"
         android:textSize="30dp"
+        android:textStyle="bold"
         android:fontFamily="@font/montserrat"
         android:textColor="@color/white"
         android:background="@color/Lavender"
@@ -49,6 +50,7 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Loại phòng: "
+               android:textStyle="bold"
                android:textSize="20sp"/>
            <RadioGroup
                android:layout_width="wrap_content"
@@ -93,6 +95,7 @@
                android:layout_height="wrap_content"
                android:text="Tình trạng phòng: "
                android:textSize="20dp"
+               android:textStyle="bold"
                />
            <RadioGroup
                android:layout_width="wrap_content"
@@ -125,6 +128,7 @@
                android:layout_width="300dp"
                android:layout_height="60dp"
                android:text="Thêm phòng"
+               android:textStyle="bold"
                android:id="@+id/btnAdd"
                android:background="@drawable/buttom_bkg"/>
 

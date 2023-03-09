@@ -17,6 +17,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sửa thông tin liên hệ"
+                android:textStyle="bold"
                 android:textSize="30sp"
                 android:textColor="@color/white"
                 android:layout_gravity="left||center"/>
@@ -38,8 +39,10 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:text="Liên hệ"
+            android:textStyle="italic"
             android:background="#BDBCBC"
             android:textSize="15sp"
+            android:gravity="center|left"
             />
         <EditText
             android:id="@+id/edtFullName"
@@ -66,8 +69,10 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:text="Địa chỉ"
+        android:textStyle="italic"
         android:background="#BDBCBC"
         android:textSize="15dp"
+        android:gravity="center|left"
         android:layout_marginTop="20dp"/>
     <EditText
         android:id="@+id/edtAddress"
@@ -77,10 +82,12 @@
         android:textSize="20dp"/>
     <Button
         android:id="@+id/btnComplete"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="60dp"
         android:text="HOÀN THÀNH"
         android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:background="@drawable/botron_buttom"
         />
