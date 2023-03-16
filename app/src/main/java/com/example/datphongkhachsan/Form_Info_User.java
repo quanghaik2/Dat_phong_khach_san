@@ -62,7 +62,7 @@ public class Form_Info_User extends AppCompatActivity {
                 String address = edtAddress.getText().toString();
                 String phone = edtPhone.getText().toString();
                 String email = edtEmail.getText().toString();
-                    if (fullName != null && address != null && phone != null && email != null){
+                    if (fullName.length() != 0 && address.length() != 0 && phone.length() != 0 && email.length() != 0){
                             Map<String, Object> items = new HashMap<>();
                             items.put("fullname", edtFullName.getText().toString());
                             items.put("address", edtAddress.getText().toString());

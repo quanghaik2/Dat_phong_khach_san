@@ -108,7 +108,7 @@ public class SignUPActivity extends AppCompatActivity {
                 String password = edtSignUpPassword.getText().toString();
                 String confirm = edtConfirmPassword.getText().toString();
                 boolean admin = false;
-                if(password.equals(confirm) && (userAccount != null && password != null)){
+                if(password.equals(confirm) && (userAccount.length() != 0 && password.length() != 0)){
                     db.collection("Users").whereEqualTo("userName",userAccount)
                             .get()
                             .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {

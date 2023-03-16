@@ -65,7 +65,7 @@ public class EditRoomActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String roomName = edtRoomName.getText().toString();
                 String roomPrice = edtPrice.getText().toString();
-                if(roomName != null && roomPrice != null){
+                if(roomName.length() != 0 && roomPrice.length() != 0){
                     db.collection("rooms").whereEqualTo("NameRoom", roomName)
                             .get()
                             .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
