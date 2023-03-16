@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtLoginUser, edtLoginPassword;
     Button btnLogin;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    String id = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,8 +80,9 @@ public class LoginActivity extends AppCompatActivity {
                 String password = edtLoginPassword.getText().toString();
 //                Adapter<Object> adapter = new Adapter<Object>;
 //                Map<String, Object> Users = new HashMap<String, Object>();
-                db.collection("Users").
-                        whereEqualTo("userName",username)
+                Toast.makeText(LoginActivity.this, username, Toast.LENGTH_SHORT).show();
+                db.collection("Users")
+                        .whereEqualTo("userName",username)
                         .whereEqualTo("passWord",password)
                         .get()
                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -88,7 +90,6 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                 if (task.isSuccessful()) {
                                    if(task.getResult().size() > 0) {
-                                       String id = "";
                                        Boolean checkadmin = false;
                                        for (QueryDocumentSnapshot document : task.getResult()) {
 //                                           Log.d(TAG, document.getId() + " => " + document.getData());
@@ -96,7 +97,8 @@ public class LoginActivity extends AppCompatActivity {
                                                 checkadmin = (boolean) document.get("admin");
                                        }
 
-                                       Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                                       Toast.makeText(LoginActivity.this, id, Toast.LENGTH_SHORT).show();
+//                                       Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
                                        if(checkadmin){
                                            Intent intent = new Intent(LoginActivity.this, EditRoomActivity.class);
@@ -118,9 +120,10 @@ public class LoginActivity extends AppCompatActivity {
                                        Toast.makeText(LoginActivity.this, "Sai tên đăng nhập hoặc mật khẩu", Toast.LENGTH_SHORT).show();
                                    }
                                 } else {
+                                    Toast.makeText(LoginActivity.this, password, Toast.LENGTH_SHORT).show();
                                     Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
                                 }
-                            }
+                           }
                         });
             }
         });

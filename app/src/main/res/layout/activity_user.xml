@@ -17,7 +17,10 @@
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="60dp"
+        android:gravity="center|left"
+        android:padding="10dp"
+        android:background="@drawable/edittext_bkg">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,10 +37,13 @@
             android:textSize="20dp"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="60dp"
+        android:gravity="center|left"
+        android:padding="10dp"
+        android:background="@drawable/edittext_bkg">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,10 +60,13 @@
             android:textSize="20dp"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="60dp"
+        android:gravity="center|left"
+        android:padding="10dp"
+        android:background="@drawable/edittext_bkg">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,19 +74,23 @@
             android:textSize="23dp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:paddingRight="55dp"/>
+           />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="abc@gmail.com"
             android:id="@+id/tvAddress"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:layout_marginLeft="50dp"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="80dp"
+        android:gravity="center|left"
+        android:padding="10dp"
+        android:background="@drawable/edittext_bkg">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,14 +108,23 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sửa thông tin cá nhân"
         android:id="@+id/editInfo"
-        android:layout_marginTop="30dp"/>
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/buttom_bkg"/>
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Xóa toàn bộ thông tin"
-        android:id="@+id/DelInfo" />
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:id="@+id/DelInfo"
+        android:background="@drawable/buttom_bkg"
+        android:layout_marginTop="15dp"/>
 </LinearLayout>

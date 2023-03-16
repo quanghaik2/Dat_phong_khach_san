@@ -6,105 +6,140 @@
     android:layout_height="match_parent"
     tools:context=".BookRoomActivity"
     android:orientation="vertical">
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập tên phòng"
-        android:id="@+id/edtRoomName"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nhập giá phòng"
-        android:id="@+id/edtPrice"
-        android:inputType="number"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="25dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Loại phòng: "/>
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rgRoomKind"
-            android:orientation="horizontal"
-            android:layout_marginTop="-12dp">
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vip"
-                android:id="@+id/rbVip"
-                android:checked="true"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thường"
-                android:id="@+id/rbThuong"
-                android:checked="false"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đơn"
-                android:id="@+id/rbDon"
-                android:checked="false"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đôi"
-                android:id="@+id/rbDoi"
-                android:checked="false"/>
-        </RadioGroup>
-    </LinearLayout>
+        android:text="Sửa thông tin phòng"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/white"
+        android:background="@color/Lavender"
+        android:gravity="center"
+        android:padding="10dp"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:padding="10dp"
+       android:layout_marginTop="20dp">
+       <EditText
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           android:hint="Nhập tên phòng"
+           android:id="@+id/edtRoomName"
+           android:background="@drawable/edittext_bkg"
+           android:padding="10dp"/>
+       <EditText
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           android:hint="Nhập giá phòng"
+           android:id="@+id/edtPrice"
+           android:inputType="number"
+           android:padding="10dp"
+           android:layout_marginTop="20dp"
+           android:background="@drawable/edittext_bkg"/>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_marginBottom="25dp"
+           android:padding="10dp"
+           android:layout_marginTop="20dp">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Loại phòng: "
+               android:textStyle="bold"
+               android:textSize="20sp"/>
+           <RadioGroup
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/rgRoomKind"
+               android:orientation="horizontal"
+               android:layout_marginTop="-12dp">
+               <RadioButton
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Vip"
+                   android:id="@+id/rbVip"
+                   android:checked="true"/>
+               <RadioButton
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Thường"
+                   android:id="@+id/rbThuong"
+                   android:checked="false"/>
+               <RadioButton
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Đơn"
+                   android:id="@+id/rbDon"
+                   android:checked="false"/>
+               <RadioButton
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Đôi"
+                   android:id="@+id/rbDoi"
+                   android:checked="false"/>
+           </RadioGroup>
+       </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tình trạng phòng: "/>
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rgStatus"
-            android:orientation="horizontal"
-            android:layout_marginTop="-12dp">
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Trống"
-                android:id="@+id/rbTrong"
-                android:checked="true"/>
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Đã thuê"
-                android:id="@+id/rbDaThue"
-                android:checked="false"/>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:padding="10dp">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Tình trạng phòng: "
+               android:textSize="20dp"
+               android:textStyle="bold"
+               />
+           <RadioGroup
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/rgStatus"
+               android:orientation="horizontal"
+               android:layout_marginTop="-12dp">
+               <RadioButton
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Trống"
+                   android:id="@+id/rbTrong"
+                   android:checked="true"/>
+               <RadioButton
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Đã thuê"
+                   android:id="@+id/rbDaThue"
+                   android:checked="false"/>
 
-        </RadioGroup>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thêm phòng"
-            android:id="@+id/btnAdd"/>
+           </RadioGroup>
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:gravity="center"
+           android:layout_marginTop="20dp">
+           <Button
+               android:layout_width="300dp"
+               android:layout_height="60dp"
+               android:text="Thêm phòng"
+               android:textStyle="bold"
+               android:id="@+id/btnAdd"
+               android:background="@drawable/buttom_bkg"/>
 
-    </LinearLayout>
+       </LinearLayout>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvRoom"/>
+       <ListView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/lvRoom"
+           android:layout_marginTop="20dp"/>
+   </LinearLayout>
 
 
 </LinearLayout>

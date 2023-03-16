@@ -73,6 +73,7 @@
             app:cornerRadius = "30dp"
             android:text="Đăng nhập"
             android:textSize="25sp"
+            android:textStyle="bold"
             android:layout_marginTop="30dp"
             android:id="@+id/btnLogin"/>
         <LinearLayout

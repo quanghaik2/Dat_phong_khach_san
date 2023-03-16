@@ -2,28 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="203dp"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
             android:src="@drawable/phong1" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="right">
-            <ImageButton
-                android:layout_margin="10dp"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/ic_baseline_cancel_24"
-                android:id="@+id/btnAbortRoom"
-                android:backgroundTint="@color/white" />
-        </LinearLayout>
+
     </LinearLayout>
    <LinearLayout
        android:layout_width="match_parent"
@@ -34,7 +24,8 @@
            android:text="Phòng số: "
            android:textSize="20dp"
            android:textColor="@color/black"
-           android:textStyle="bold"/>
+           android:textStyle="bold"
+           android:layout_marginTop="20dp"/>
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
@@ -43,7 +34,8 @@
    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,7 +51,8 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,6 +66,16 @@
             android:text=""
             android:id="@+id/tvDateTime"/>
     </LinearLayout>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAbortRoom"
+        android:text="Hủy đặt phòng"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/buttom_bkg"
+        android:layout_marginTop="20dp"/>
 
 
 
