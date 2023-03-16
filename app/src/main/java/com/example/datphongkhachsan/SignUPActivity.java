@@ -108,7 +108,7 @@ public class SignUPActivity extends AppCompatActivity {
                 String password = edtSignUpPassword.getText().toString();
                 String confirm = edtConfirmPassword.getText().toString();
                 boolean admin = false;
-                if(password.equals(confirm) && (userAccount != null || password != null)){
+                if(password.equals(confirm) && (userAccount != null && password != null)){
                     db.collection("Users").whereEqualTo("userName",userAccount)
                             .get()
                             .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -167,10 +167,9 @@ public class SignUPActivity extends AppCompatActivity {
                                 }
                             });
 
-
                 }
                 else {
-                    Toast.makeText(SignUPActivity.this, "Nhập sai xác thực mật khẩu xin nhập lại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUPActivity.this, "Nhập sai xác thực mật khẩu xin nhập lại hoặc đang để trống", Toast.LENGTH_SHORT).show();
                 }
             }
         });

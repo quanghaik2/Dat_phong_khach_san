@@ -45,6 +45,7 @@ public class InfoBookRoom extends AppCompatActivity {
                     public void onSuccess(QuerySnapshot documentSnapshots) {
                         if(documentSnapshots.isEmpty()){
                             Toast.makeText(InfoBookRoom.this, "Bạn chưa đặt phòng nào", Toast.LENGTH_SHORT).show();
+                            tvNameUser.setText("Bạn chưa đặt phòng nào");
                         }
                         else {
                             for (QueryDocumentSnapshot doc : documentSnapshots){
@@ -74,7 +75,7 @@ public class InfoBookRoom extends AppCompatActivity {
                                     user.setFullName(doc.get("fullname").toString());
                                     user.setAddress(doc.get("address").toString());
                                     user.setPhone(doc.get("phone").toString());
-                                    tvNameUser.setText(user.getFullName());
+                                    tvNameUser.setText(doc.get("fullname").toString());
                                 }
                             }
                         }

@@ -65,7 +65,7 @@ public class EditRoomActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String roomName = edtRoomName.getText().toString();
                 String roomPrice = edtPrice.getText().toString();
-                if(roomName != null || roomPrice != null){
+                if(roomName != null && roomPrice != null){
                     db.collection("rooms").whereEqualTo("NameRoom", roomName)
                             .get()
                             .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -105,7 +105,8 @@ public class EditRoomActivity extends AppCompatActivity {
                                                     @Override
                                                     public void onSuccess(DocumentReference documentReference) {
                                                         Toast.makeText(EditRoomActivity.this, "Thêm phòng thành công", Toast.LENGTH_SHORT).show();
-                                                        rooms.add(new room(roomName, roomKind, roomStatus, Integer.parseInt(roomPrice),idRoom));
+                                                        String id = documentReference.getId();
+                                                        rooms.add(new room(roomName, roomKind, roomStatus, Integer.parseInt(roomPrice),id));
                                                         lvRoom.setAdapter(adapter);
                                                         adapter.notifyDataSetChanged();
                                                     }
@@ -146,7 +147,9 @@ public class EditRoomActivity extends AppCompatActivity {
                                 if (doc.get("Price").toString().equals("")){
                                     price = 0;
                                 }
-                                price = Integer.parseInt(doc.get("Price").toString());
+                                else {
+                                    price = Integer.parseInt(doc.get("Price").toString());
+                                }
                                 rooms.add(new room(name, kind, status, price,idRoom));
 //                                Toast.makeText(Home_Page.this, name + kind + status + price, Toast.LENGTH_SHORT).show();
                             }

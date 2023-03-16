@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,7 +71,7 @@ public class adapterBookRoomHotel extends BaseAdapter {
         TextView tvNameRoom = convertView.findViewById(R.id.tvNameRoom);
         TextView tvPrice = convertView.findViewById(R.id.tvPrice);
         TextView tvDateTime = convertView.findViewById(R.id.tvDateTime);
-        ImageButton btnAbortRoom = convertView.findViewById(R.id.btnAbortRoom);
+        Button btnAbortRoom = convertView.findViewById(R.id.btnAbortRoom);
 
 
 
