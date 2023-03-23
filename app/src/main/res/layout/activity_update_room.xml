@@ -52,7 +52,7 @@
         android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginBottom="25dp">
         <TextView
             android:layout_width="wrap_content"
@@ -74,28 +74,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Vip"
-                android:textSize="12dp"
+                android:textSize="10dp"
                 android:id="@+id/rbVipUpdate"
                 android:checked="true"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thường"
-                android:textSize="12dp"
+                android:textSize="10dp"
                 android:id="@+id/rbThuongUpdate"
                 android:checked="false"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đơn"
-                android:textSize="12dp"
+                android:textSize="10dp"
                 android:id="@+id/rbDonUpdate"
                 android:checked="false"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đôi"
-                android:textSize="12dp"
+                android:textSize="10dp"
                 android:id="@+id/rbDoiUpdate"
                 android:checked="false"/>
         </RadioGroup>

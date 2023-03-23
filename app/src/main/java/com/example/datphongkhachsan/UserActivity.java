@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class UserActivity extends AppCompatActivity {
     TextView tvName,tvPhone,tvAddress,tvEmail;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Button editInfo,DelInfo;
+    ImageButton btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class UserActivity extends AppCompatActivity {
         tvPhone = findViewById(R.id.tvPhone);
         editInfo = findViewById(R.id.editInfo);
         DelInfo = findViewById(R.id.DelInfo);
+        btnLogout =  findViewById(R.id.btnLogout);
         Bundle Bundle = getIntent().getExtras();
         String id = Bundle.getString("idUser");
         userInfo Users = new userInfo("","","","");
@@ -84,6 +87,14 @@ public class UserActivity extends AppCompatActivity {
                 intent.putExtras(bundle);
                 startActivity(intent);
 
+            }
+        });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
 
